@@ -26,5 +26,20 @@ $a = $array[0]; //$aに10が入る
 $b = $array[1]; //$bに5が入る
 ```  
 
+### 複数行の入力文字を受け取り配列に格納する 
+```php
+$input_array = array();
+while($input_line = fgets(STDIN)) {
+    array_push($input_array, $input_line);
+}
+```  
+
+上記はfgets関数の引数にSTDINを渡し、標準入力を受け取る例。   
+
+fgets関数は読み込むデータがなくなった時にfalseを返すので、while文を使ってデータが存在する限り1行ずつ$input_lineに読み込んでいく。   
+
+読み込んだデータはarray_push関数を使って、配列へ追加していく。  
+
+
 **※fgets(STDIN)で取得した型は必ず文字列型**  
 PHPは型を柔軟に判断してくれるので四則演算には問題ないが、厳密判定の===を使う場合は注意。
